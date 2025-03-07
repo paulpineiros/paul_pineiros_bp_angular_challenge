@@ -1,0 +1,9 @@
+<div class="modal-backdrop" *ngIf="isOpen">
+    <div class="modal-content">
+      <p>¿Estás seguro de eliminar el producto <strong>{{ titulo }}</strong>?</p>
+      <div class="modal-actions">
+        <button class="cancel" (click)="close()">Cancelar</button>
+        <button class="confirm" (click)="confirm()">Confirmar</button>
+      </div>
+    </div>
+  </div>

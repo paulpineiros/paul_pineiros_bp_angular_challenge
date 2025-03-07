@@ -1,0 +1,70 @@
+.addButton {
+  background-color: #ffeb3b;
+  color: #000;
+  border: 0;
+}
+.table-container {
+    padding: 50px 100px;
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    overflow-x: auto;
+  }
+  .header {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+  }
+  .search-input {
+    margin-bottom: 15px;
+    padding: 5px;
+    width: 250px;
+  }
+
+  .custom-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+    .custom-table th,
+    .custom-table td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    }
+
+    .custom-table th {
+    background-color: #f0f0f0;
+    font-weight: bold;
+    }
+
+  .logo {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #c4c4c4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: white;
+  }
+  
+  .footer {
+    display: flex;
+    justify-content: space-between;
+    padding: 30px 0;
+  }
+
+  .action-link {
+    text-decoration: none;
+    font-weight: bold;
+    margin: 0 10px;
+    font-size: 14px;
+    transition: color 0.3s ease-in-out;
+  }
+
+  
+  .action-link:hover {
+    text-decoration: underline;
+  }

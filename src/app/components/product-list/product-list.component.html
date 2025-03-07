@@ -1,0 +1,43 @@
+<div class="table-container">
+    <div class="header">
+      <input type="text" placeholder="Buscar..." class="search-input" (input)="searchProducts($event)" />
+      <button class="addButton" (click)="createProduct()">Agregar</button>
+    </div>
+    <table class="custom-table">
+      <thead>
+        <tr>
+          <th>Logo</th>
+          <th>Nombre del producto</th>
+          <th>Descripción</th>
+          <th>Fecha de liberación</th>
+          <th>Fecha de reestructuración</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr *ngFor="let item of products">
+            <td><img class="logo" src="{{item.logo}}" alt=""></td>
+            <td>{{item.name}}</td>
+            <td>{{item.description}}</td>
+            <td>{{item.date_release}}</td>
+            <td>{{item.date_revision}}</td>
+            <td>
+              <span class="action-link" (click)="editProduct(item.id)">Editar</span>
+              <span class="action-link" (click)="handleShowModal(item)">Eliminar</span>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+    <div class="footer">
+      <div>{{products.length}} Resultados</div>
+      <select  id="recordsPerPage" [(ngModel)]="recordsPerPage" (change)="updateRecordsPerPage()">
+        <option *ngFor="let option of recordsOptions" [value]="option">{{ option }}</option>
+      </select>
+    </div>
+  </div>
+  <app-modal
+  [isOpen]="showModal"
+  titulo="{{selectedProduct?selectedProduct.name:''}}"
+  (onClose)="handleShowModal()"
+  (onConfirm)="deleteProduct()">
+</app-modal>

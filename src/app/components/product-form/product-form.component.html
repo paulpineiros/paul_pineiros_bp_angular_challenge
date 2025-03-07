@@ -1,0 +1,59 @@
+
+<div class="container">
+    <h2>{{ isEdit ? 'Formulario de Actualización' : 'Formulario de Registro' }}</h2>
+    <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+      <div class="form-grid">
+        <!-- ID -->
+        <div class="form-group">
+          <label for="id">ID</label>
+          <input id="id" type="text" formControlName="id" [class.invalid]="isValidField('id')"/>
+          <div class="error-message" *ngIf="isValidField('id')">{{ getFieldError("id") }}</div>
+          <div class="error-message" *ngIf="productForm.controls['id'].hasError('idExists') && productForm.controls['id'].touched">
+            ¡Este ID ya está en uso!
+          </div>
+        </div>
+  
+        <!-- Nombre -->
+        <div class="form-group">
+          <label for="name">Nombre</label>
+          <input id="name" type="text" formControlName="name" [class.invalid]="isValidField('name')" />
+          <div class="error-message" *ngIf="isValidField('name')">{{ getFieldError("name") }}</div>
+        </div>
+  
+        <!-- Descripción -->
+        <div class="form-group">
+          <label for="description">Descripción</label>
+          <textarea id="description" formControlName="description" [class.invalid]="isValidField('description')"></textarea>
+          <div class="error-message" *ngIf="isValidField('description')">{{ getFieldError("description") }}</div>
+        </div>
+  
+        <!-- Logo -->
+        <div class="form-group">
+          <label for="logo">Logo</label>
+          <input id="logo" type="text" formControlName="logo" [class.invalid]="isValidField('logo')" />
+          <div class="error-message" *ngIf="isValidField('logo')">{{ getFieldError("logo") }}</div>
+        </div>
+  
+        <!-- Fecha Liberación -->
+        <div class="form-group">
+          <label for="date_release">Fecha Liberación</label>
+          <input id="date_release" type="text" formControlName="date_release"  [class.invalid]="isValidField('date_release')"/>
+          <div class="error-message" *ngIf="isValidField('date_release')">{{ getFieldError("date_release") }}</div>
+        </div>
+  
+        <!-- Fecha Revisión (deshabilitado) -->
+        <div class="form-group">
+          <label for="date_revision">Fecha Revisión</label>
+          <input id="date_revision" type="text" formControlName="date_revision"  [class.invalid]="isValidField('date_revision')" />
+          <div class="error-message" *ngIf="isValidField('date_revision')">{{ getFieldError("date_revision") }}</div>
+        </div>
+      </div>
+  
+      <!-- Botones -->
+      <div class="button-group">
+        <button type="button" class="reset-btn" (click)="onReset()">{{ isEdit ? 'Regresar' : 'Reiniciar' }}</button>
+        <button type="submit" class="submit-btn" [disabled]="productForm.invalid">Enviar</button>
+      </div>
+    </form>
+  </div>
+  
